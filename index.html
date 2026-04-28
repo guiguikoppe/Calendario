@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="background-blobs"></div>
+
+    <div class="glass-container">
+        <header>
+            <div class="nav-wrapper">
+                <button onclick="mudarMes(-1)" class="nav-btn">❮</button>
+                <div class="month-display">
+                    <h1 id="mes-atual">Janeiro 2024</h1>
+                    <span id="stats-topo">Carregando...</span>
+                </div>
+                <button onclick="mudarMes(1)" class="nav-btn">❯</button>
+            </div>
+        </header>
+
+        <main class="content-grid">
+            <section class="calendar-section">
+                <div class="weekdays-header">
+                    <div>Dom</div><div>Seg</div><div>Ter</div><div>Qua</div><div>Qui</div><div>Sex</div><div>Sáb</div>
+                </div>
+                <div id="calendar-body" class="days-grid"></div>
+
+                <div class="info-card holiday-info" id="card-feriado" style="display: none;">
+                    <div class="icon-label" style="color: #ff7675;">🚩 FERIADO NACIONAL</div>
+                    <p id="nome-feriado"></p>
+                </div>
+            </section>
+
+            <aside class="info-sidebar">
+                <div class="info-card primary-card">
+                    <h2 id="selected-date-title">Selecione um dia</h2>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon-label">🎂 ANIVERSARIANTE</div>
+                    <p id="famoso-nome">Escolha uma data na grade</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon-label">📜 HISTÓRIA</div>
+                    <p id="fato-texto">Explore o passado clicando nos dias.</p>
+                </div>
+
+                <div class="info-card notes-section">
+    <div class="icon-label">📝 ANOTAÇÃO DO DIA</div>
+    
+    <textarea id="note-input" placeholder="Escreva algo sobre esse dia..."></textarea>
+    
+    <button onclick="salvarNota()" class="save-note-btn">
+        💾 Salvar anotação
+    </button>
+</div>
+
+                <div class="info-card countdown-section">
+                    <div class="icon-label">⏳ CALCULADORA DE INTERVALO</div>
+                    <div class="input-group">
+                        <div class="field">
+                            <label>Início</label>
+                            <input type="date" id="start-date">
+                        </div>
+                        <div class="field">
+                            <label>Fim</label>
+                            <input type="date" id="end-date">
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <button onclick="calcularIntervalo()" class="calc-btn">Calcular</button>
+                        <button onclick="resetarContador()" class="reset-btn">Resetar</button>
+                    </div>
+                    <div id="countdown-result">---</div>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script src="js/famosos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
